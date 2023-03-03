@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_map/flutter_map.dart';
 
-class TreesPage extends StatefulWidget {
-  const TreesPage({Key? key}) : super(key: key);
-
-  @override
-  _TressPageState createState() => _TreesPageState();
-}
-
-class _TressPageState extends State<TreesPage> {
+class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Map'),
+      ),
+    );
   }
 }
