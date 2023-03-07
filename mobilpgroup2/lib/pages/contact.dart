@@ -4,25 +4,23 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Contact'),
-      ),
       body: ListView(
         children: [
+          Text('Contact'),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text('A'),
-            subtitle: Text('a@example.com'),
+            title: Text('Jeerasak Tarat'),
+            subtitle: Text('jeerasak_tarat@cmu.ac.th'),
           ),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text('B'),
-            subtitle: Text('b@example.com'),
+            title: Text('Padungkiat Leksri'),
+            subtitle: Text('padungkiat_leksri@cmu.ac.th'),
           ),
           ListTile(
             leading: Icon(Icons.person),
-            title: Text('C'),
-            subtitle: Text('c@example.com'),
+            title: Text('HAIZHAO LI'),
+            subtitle: Text('li_haizhao@cmu.ac.th'),
           ),
         ],
       ),

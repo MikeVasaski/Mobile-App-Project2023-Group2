@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobilpgroup2/pages/treesmap.dart';
+import 'package:mobilpgroup2/pages/contact.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -7,13 +9,16 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    Text('Home'),
-    Text('Tree Map'),
-    Text('Contact'),
+    Text(
+      'Home Page',
+    ),
+    MapPage(),
+    ContactPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -26,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tree App'),
+        title: Text('My App'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -39,14 +44,15 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
-            label: 'Tree Map',
+            label: 'Map',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.contact_phone),
+            icon: Icon(Icons.contact_mail),
             label: 'Contact',
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
         onTap: _onItemTapped,
       ),
     );

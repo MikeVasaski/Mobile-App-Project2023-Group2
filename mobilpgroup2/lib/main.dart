@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobilpgroup2/pages/home.dart';
+import 'package:mobilpgroup2/pages/treesmap.dart';
+import 'package:mobilpgroup2/pages/treesmap.dart';
 
 void main() {
   runApp(MyApp());
