@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -53,85 +52,7 @@ class _HomePageState extends State<HomePage> {
                 Icons.notifications_none, //add notification icon in appbar
               )),
         ],
-
         backgroundColor: Color.fromARGB(255, 33, 97, 35),
-
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,));}
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Myhomepage(title: 'Appbar'),
-    );
-  }
-}
-
-class Myhomepage extends StatefulWidget {
-  const Myhomepage({Key? key, required this.title}) : super(key: key);
-  final String title;
-  @override
-  State<Myhomepage> createState() => _MyhomepageState();
-}
-
-class _MyhomepageState extends State<Myhomepage> {
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-          // centerTitle: true,
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {},
-          ),
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.notifications_none)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          ],
-          elevation: 24,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(
-                        "https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg"),
-                    fit: BoxFit.cover)),
-          ),
-          bottom: TabBar(tabs: [
-            Tab(
-              icon: Icon(Icons.home),
-              text: "Home",
-            ),
-            Tab(
-              icon: Icon(Icons.list_alt),
-              text: "Feed",
-            ),
-            Tab(
-              icon: Icon(Icons.person),
-              text: "Profit",
-            ),
-            Tab(
-              icon: Icon(Icons.settings),
-              text: "Settings",
-            ),
-          ]),
-        ),
-        body: Center(),
-
-
       ),
       body: Padding(
           padding: const EdgeInsets.all(20),
@@ -152,4 +73,3 @@ class _MyhomepageState extends State<Myhomepage> {
     );
   }
 }
-  }
