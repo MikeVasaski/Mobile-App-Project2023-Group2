@@ -1,6 +1,5 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:mobilpgroup2/pages/treesmap.dart';
-import 'package:mobilpgroup2/pages/contact.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,52 +8,68 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
-  static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home Page',
-    ),
-    MapPage(),
-    ContactPage(),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  Widget MyBox(String name, String lat, String long, String img_url) {
+    return Container(
+      margin: EdgeInsets.only(top: 20),
+      padding: EdgeInsets.all(20),
+      height: 120,
+      decoration: BoxDecoration(
+          color: Colors.green[100],
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+              image: NetworkImage(img_url),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5), BlendMode.darken))),
+      child: Column(children: [
+        Text(name,
+            style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold)),
+        SizedBox(
+          height: 20,
+        ),
+        Text('Lat:$lat,Long:$long',
+            style: TextStyle(
+              fontSize: 10,
+              color: Colors.white,
+            )),
+      ]),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My App'),
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Map',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.contact_mail),
-            label: 'Contact',
-          ),
+        title: Text("Home page"),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.notifications_none, //add notification icon in appbar
+              )),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
+        backgroundColor: Color.fromARGB(255, 33, 97, 35),
       ),
+      body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: FutureBuilder(
+            builder: (context, snapshot) {
+              var data = json.decode(snapshot.data.toString());
+              return ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return MyBox(data[index]['name'], data[index]['lat'],
+                      data[index]['long'], data[index]['img_url']);
+                },
+                itemCount: data.length,
+              );
+            },
+            future:
+                DefaultAssetBundle.of(context).loadString('assets/data.json'),
+          )),
     );
   }
 }
