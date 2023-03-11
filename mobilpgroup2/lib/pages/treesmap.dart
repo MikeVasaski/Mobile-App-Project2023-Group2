@@ -10,6 +10,16 @@ class TreemapPage extends StatefulWidget {
 }
 
 class _TreemapPageState extends State<TreemapPage> {
+  static const LatLng hueykaewWater =
+      LatLng(18.812059957422427, 98.9445457975004);
+
+  static const LatLng hermitCave =
+      LatLng(18.807027575878315, 98.91068798040921);
+  static const LatLng doipui = LatLng(18.83221904126119, 98.88893299884577);
+
+  static const LatLng bigBanyanTree =
+      LatLng(18.807541151790403, 98.95145751100694);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +35,8 @@ class _TreemapPageState extends State<TreemapPage> {
         backgroundColor: Color.fromARGB(255, 33, 97, 35),
       ),
       body: GoogleMap(
-        initialCameraPosition:
-            CameraPosition(target: LatLng(18.812059957422427, 98.9445457975004), zoom: 18),
-            // markers: Set<Marker>.of(markers),
+        initialCameraPosition: CameraPosition(target: bigBanyanTree, zoom: 18),
+        // markers: Set<Marker>.of(markers),
         // trafficEnabled: true,
         // buildingsEnabled: true,
       ),
