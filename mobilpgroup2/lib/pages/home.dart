@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // MyBox is the method for display info of specific locations
+  // name refer to the specific location's name
   Widget MyBox(String name, String lat, String long, String img_url) {
     return Container(
       margin: EdgeInsets.only(top: 20),
