@@ -19,3 +19,11 @@ the trees in a range within 5 meters far from users
 discription, picture, location, trees name, etc.
 5.about us: the creator of applications
 last updated 25 Feb 2023, 3:04pm
+
+*** IMPORTANT ***
+Set API Key for Google map API 
+Android: android\app\src\main\AndroidManifest.xml
+iOS: ios\Runner\AppDelegate.swift
+
+If have problem about build.gradle(some device)
+minSdkVersion flutter.minSdkVersion --> minSdkVersion 20
